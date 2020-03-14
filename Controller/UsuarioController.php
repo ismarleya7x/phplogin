@@ -33,7 +33,6 @@ class UsuarioController
   public function Autenticar(string $email, string $senha)
   {
     if (strpos($email, "@") > 0 && strpos($email, ".") > 0 && strlen($senha) >= 7) {
-      echo "controler";
       return $this->usuarioDAO->Autenticar($email, $senha);
     } else {
       return null;

@@ -18,8 +18,8 @@
     $usuario = new Usuario(); //Instância de usuário
 
     $usuario->setNome(filter_input(INPUT_POST, "txtUsuarioRegistro", FILTER_SANITIZE_STRING));
-    $usuario->setSenha(filter_input(INPUT_POST, "txtSenhaRegistro", FILTER_SANITIZE_STRING));
-    $usuario->setEmail(md5(filter_input(INPUT_POST, "txtEmailRegistro", FILTER_SANITIZE_STRING)));
+    $usuario->setSenha(md5(filter_input(INPUT_POST, "txtSenhaRegistro", FILTER_SANITIZE_STRING)));
+    $usuario->setEmail(filter_input(INPUT_POST, "txtEmailRegistro", FILTER_SANITIZE_STRING));
     $usuario->setData(date("Y-m-d H:i:ss"));
 
     $result = $usuarioController->Cadastrar($usuario);

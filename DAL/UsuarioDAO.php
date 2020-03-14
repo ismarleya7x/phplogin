@@ -72,13 +72,8 @@ class UsuarioDAO{
 
   public function Autenticar(string $email, string $senha){
     $filename = "{$email}.txt";
-    echo "dao fora if";
     if($this->VerificaArquivo($filename)){
       $usuario = $this->RetornaUsuario($filename);
-      var_dump($usuario);
-
-      echo "Get Senha -> ". $usuario->getSenha();
-      echo "MD5 -> ". md5($senha);
       if($usuario->getSenha() == md5($senha)){
         return $usuario;
       }else{
